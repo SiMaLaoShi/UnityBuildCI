@@ -1,0 +1,2 @@
+# ChannelFolderApp
+这个库是用来提取mobileprovision信息的
