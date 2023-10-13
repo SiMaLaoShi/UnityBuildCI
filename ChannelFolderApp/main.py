@@ -49,7 +49,7 @@ class MainWindow(QMainWindow):
         self.btn_process.clicked.connect(self.process_data)
 
         # Load last used folder paths
-        settings = QSettings("YourCompany", "YourApp")
+        settings = QSettings("ebw", "ChannelFolderApp")
         last_channel_folder = settings.value("last_channel_folder", "")
         last_dev_mobileprovision = settings.value("last_dev_mobileprovision", "")
         last_dis_mobileprovision = settings.value("last_dis_mobileprovision", "")
@@ -63,7 +63,7 @@ class MainWindow(QMainWindow):
         dis_mobileprovision = self.entry_dis_mobileprovision.text()
 
         # Save last used folder paths
-        settings = QSettings("bc", "mobileprovision")
+        settings = QSettings("ebw", "ChannelFolderApp")
         settings.setValue("last_channel_folder", channel_folder)
         settings.setValue("last_dev_mobileprovision", dev_mobileprovision)
         settings.setValue("last_dis_mobileprovision", dis_mobileprovision)
