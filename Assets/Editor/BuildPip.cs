@@ -36,10 +36,10 @@ public class BuildPip : Editor
         Debug.Log(jsonStr);
         string outputPath = "Builds/xcode";
         BuildPipeline.BuildPlayer(new[] {"Assets/Scenes/SampleScene.unity"}, outputPath, BuildTarget.iOS, BuildOptions.None);
-        var userPodFile = true;
+        var userPodFile = false;
         if (userPodFile)
             usepodinstall(outputPath);
-        xcodebuild_archive(outputPath, false, true);
+        xcodebuild_archive(outputPath, false, true, userPodFile);
         generate_export_options_plist(outputPath, exportMethod_development, channelConfig.teamId, channelConfig.appId, channelConfig.DevMobileProvisionData.Name);
         xcodebuild_export(outputPath, true, channelConfig.teamId, exportMethod_development);
         
@@ -66,7 +66,7 @@ public class BuildPip : Editor
         //导入开发描述文件
         shSb.AppendLine($"cp {channelConfig.devMobPath} ~/Library/MobileDevice/Provisioning\\ Profiles/{channelConfig.DevMobileProvisionData.UUID}.mobileprovision");
         //导入发布描述文件
-        shSb.AppendLine($"cp {channelConfig.disMobPath} ~/Library/MobileDevice/Provisioning\\ Profiles/{channelConfig.DevMobileProvisionData.UUID}.mobileprovision");
+        shSb.AppendLine($"cp {channelConfig.disMobPath} ~/Library/MobileDevice/Provisioning\\ Profiles/{channelConfig.DisMobileProvisionData.UUID}.mobileprovision");
         //修改访问权限
         shSb.AppendLine(
             $"security set-key-partition-list -S apple-tool:,apple:,codesign: -s -k {channelConfig.macPwd} login.keychain");
