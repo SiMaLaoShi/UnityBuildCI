@@ -255,13 +255,6 @@ class MyWindow(QMainWindow):
         sb.append(f"dis_profile_id={dis.Name}")
         sb.append("")
 
-        sb.append("[q1sdk]")
-        sb.append("appId=2120")
-        sb.append("appKey=376e52dab73f4f76b484a2cc259bb9f1")
-        sb.append("appPid=2120001")
-        sb.append("verKey=TJCS")
-        sb.append("")
-
         sb.append("[p12]")
         sb.append(f"macPwd={mac_pwd}")
         sb.append(f"p12Pwd={p12_pwd}")
